@@ -29,3 +29,12 @@ While microcontrollers and digital ADCs are ubiquitous today, analog telemetry r
 * **Noise Immunity:** By transmitting frequency rather than voltage, this system replicates the robust nature of industrial 4-20mA loops. It is highly resistant to ground loops, line resistance, and EMI, making it ideal for HVAC monitoring, chemical plant sensors, or remote weather stations.
 * **Zero-Latency Processing:** Performing summing and differential amplification at the hardware level ensures continuous, zero-latency processing. This is highly beneficial in closed-loop control systems where ADC sampling delays or MCU overhead could introduce phase lag.
 * **Calibration & Precision:** The inclusion of variable trimmers across both the acquisition and reception stages allows for strict calibration of zero-offsets and amplifier gains, compensating for component tolerances in real-world deployments.
+
+---
+
+## PCB Layout & In-House Fabrication
+The PCBs were designed to be fabricated and assembled in-house using manual chemical etching. Working within these laboratory constraints required specific routing compromises and mitigations:
+
+* **Single-Layer Routing:** The boards were routed entirely on one layer to accommodate the manual etching process and avoid the need for plated through-holes or vias.
+* **Oversized Clearances:** Trace widths and isolation gaps were maximized to ensure a reliable chemical etch and to prevent solder bridging during manual assembly.
+* **Ground Routing Mitigations:** Given the impossibility of a dedicated copper ground plane on a single-layer board, ground returns were manually routed. Care was taken to separate the high-frequency switching returns (XR4151) from the sensitive analog inputs to mitigate ground loops and coupling as much as the physical constraints allowed.
